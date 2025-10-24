@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MWConsultants - Expert consultancy services in AI & Automation, Financial Services including GST, IT Infrastructure Support, and Real Estate.">
+    <meta name="keywords" content="consultancy, AI automation, financial services, GST, IT infrastructure, real estate">
+    <title>Our Services | MWConsultants</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e3a5f;      /* Deep navy blue - professional & trustworthy */
+            --secondary: #4a6fa5;    /* Medium blue - corporate feel */
+            --accent: #e67e22;       /* Warm orange - energetic & friendly */
+            --light: #f5f7fa;        /* Light gray-blue - clean background */
+            --dark: #2c3e50;         /* Dark blue-gray - professional text */
+            --gray: #7f8c8d;         /* Neutral gray - secondary text */
+            --success: #27ae60;      /* Green - positive action */
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--gradient);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Services Detail Section */
+        .services-detail {
+            background-color: white;
+        }
+
+        .service-detail-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-detail-card:nth-child(even) .service-image {
+            order: 2;
+        }
+
+        .service-detail-card:nth-child(even) .service-content {
+            order: 1;
+        }
+
+        .service-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .service-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .service-features {
+            margin: 25px 0;
+        }
+
+        .service-features h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-features ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .service-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Service Stats */
+        .service-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .service-detail-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail-card:nth-child(even) .service-image,
+            .service-detail-card:nth-child(even) .service-content {
+                order: unset;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .service-detail-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">MW<span>Consultants</span></a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container page-header-content">
+            <h1>Our Professional Services</h1>
+            <p>Comprehensive consultancy solutions tailored to drive your business growth and success across multiple domains.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="services-detail section-padding">
+        <div class="container">
+            <!-- AI & Automation Service -->
+            <div class="service-detail-card">
+                <div class="service-content">
+                    <h2>AI & Automation</h2>
+                    <p>Transform your business operations with cutting-edge artificial intelligence and automation solutions. We help you leverage technology to streamline processes, reduce costs, and enhance productivity.</p>
+                    
+                    <div class="service-features">
+                        <h3>Our AI & Automation Services Include:</h3>
+                        <ul>
+                            <li>Process automation and workflow optimization</li>
+                            <li>AI-powered data analytics and insights</li>
+                            <li>Machine learning implementation</li>
+                            <li>Robotic Process Automation (RPA)</li>
+                            <li>Intelligent chatbot development</li>
+                            <li>Predictive analytics and forecasting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-text">Average Cost Reduction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3x</div>
+                            <div class="stat-text">Faster Processing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-text">Accuracy Improvement</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Consult Our Experts</a>
+                </div>
+                <div class="service-image">
+                    <!-- Placeholder for service image -->
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, #1e3a5f 0%, #4a6fa5 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;">
+                        AI & Automation Solutions
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Services & GST -->
+            <div class="service-detail-card">
+                <div class="service-content">
+                    <h2>Financial Services & GST</h2>
+                    <p>Navigate the complex financial landscape with our expert guidance. From tax planning to GST compliance, we provide comprehensive financial solutions to optimize your business performance.</p>
+                    
+                    <div class="service-features">
+                        <h3>Our Financial Services Include:</h3>
+                        <ul>
+                            <li>GST registration, filing, and compliance</li>
+                            <li>Tax planning and optimization strategies</li>
+                            <li>Financial statement analysis</li>
+                            <li>Business valuation services</li>
+                            <li>Audit support and representation</li>
+                            <li>Working capital management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Compliance Assurance</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30%</div>
+                            <div class="stat-text">Average Tax Savings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-text">Clients Served</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Get Financial Advice</a>
+                </div>
+                <div class="service-image">
+                    <!-- Placeholder for service image -->
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, #1e3a5f 0%, #4a6fa5 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;">
+                        Financial Services & GST
+                    </div>
+                </div>
+            </div>
+
+            <!-- IT Infrastructure Support -->
+            <div class="service-detail-card">
+                <div class="service-content">
+                    <h2>IT Infrastructure Support</h2>
+                    <p>Build a robust, secure, and scalable IT infrastructure that supports your business growth. Our experts ensure your technology systems are optimized for performance and reliability.</p>
+                    
+                    <div class="service-features">
+                        <h3>Our IT Infrastructure Services Include:</h3>
+                        <ul>
+                            <li>Network design and implementation</li>
+                            <li>Cloud migration and management</li>
+                            <li>Cybersecurity solutions</li>
+                            <li>Data backup and disaster recovery</li>
+                            <li>Server management and maintenance</li>
+                            <li>IT helpdesk and support services</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-text">Uptime Guarantee</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-text">Support Availability</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-text">Faster Issue Resolution</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Optimize Your IT</a>
+                </div>
+                <div class="service-image">
+                    <!-- Placeholder for service image -->
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, #1e3a5f 0%, #4a6fa5 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;">
+                        IT Infrastructure Support
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real Estate Consultancy -->
+            <div class="service-detail-card">
+                <div class="service-content">
+                    <h2>Real Estate Consultancy</h2>
+                    <p>Make informed real estate decisions with our strategic consultancy services. From investments to property management, we provide expert guidance for all your real estate needs.</p>
+                    
+                    <div class="service-features">
+                        <h3>Our Real Estate Services Include:</h3>
+                        <ul>
+                            <li>Property investment analysis</li>
+                            <li>Commercial real estate advisory</li>
+                            <li>Property valuation and due diligence</li>
+                            <li>Real estate portfolio management</li>
+                            <li>Lease negotiation and management</li>
+                            <li>Market research and feasibility studies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">$50M+</div>
+                            <div class="stat-text">Properties Managed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15%</div>
+                            <div class="stat-text">Average ROI Improvement</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-text">Projects Completed</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Discuss Real Estate</a>
+                </div>
+                <div class="service-image">
+                    <!-- Placeholder for service image -->
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, #1e3a5f 0%, #4a6fa5 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;">
+                        Real Estate Consultancy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Contact our experts today to discuss how our consultancy services can drive growth and success for your organization.</p>
+            <a href="contact.html" class="btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MWConsultants</h3>
+                    <p>Your trusted partner for comprehensive business consultancy services across multiple domains including AI & Automation, Financial Services, IT Infrastructure, and Real Estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI & Automation</a></li>
+                        <li><a href="#">Financial Services & GST</a></li>
+                        <li><a href="#">IT Infrastructure Support</a></li>
+                        <li><a href="#">Real Estate Consultancy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>123 Business Avenue, Suite 100<br>City, State 12345</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Email: info@mwconsultants.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MWConsultants. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
