@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI & Automation | MWConsultants</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(180deg, #1e4c82, #2f67a0);
+      color: #fff;
+    }
+
+    header {
+      background: #fff;
+      color: #1e4c82;
+      padding: 1rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #1e4c82;
+    }
+
+    header h1 span {
+      color: #f28c28;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #e6e6e6;
+    }
+
+    .btn {
+      background: #f28c28;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e07a14;
+    }
+
+    .section {
+      background: #fff;
+      color: #1e4c82;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      color: #1e4c82;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 1rem auto 2rem;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: #f5f5f5;
+      border-radius: 10px;
+      width: 300px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h4 {
+      color: #1e4c82;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e4c82;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    iframe {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MW<span>Consultants</span></h1>
+    <nav>
+      <a href="index.html" style="color:#1e4c82; margin-right:20px;">Home</a>
+      <a href="ai-automation.html" style="color:#f28c28;">AI & Automation</a>
+      <a href="contact.html" style="color:#1e4c82;">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>AI & Automation Solutions</h2>
+    <p>
+      Harness the power of Artificial Intelligence and automation to simplify workflows, enhance efficiency, and drive innovation. MWConsultants builds smart systems that think, learn, and automate your business processes.
+    </p>
+    <button class="btn">Explore Services</button>
+    <button class="btn">Request Demo</button>
+  </section>
+
+  <section class="section">
+    <h3>What We Offer</h3>
+    <p>
+      From intelligent chatbots to complete AI-powered process automation, we help organizations adopt next-generation technology with measurable ROI.
+    </p>
+    <div class="services">
+      <div class="card">
+        <h4>AI Chat & Voice Agents</h4>
+        <p>Automate customer engagement using conversational AI powered by n8n and NLP technologies.</p>
+      </div>
+      <div class="card">
+        <h4>Business Process Automation</h4>
+        <p>Streamline repetitive workflows across departments with no-code automations and data-driven triggers.</p>
+      </div>
+      <div class="card">
+        <h4>Predictive Analytics</h4>
+        <p>Leverage AI to forecast demand, detect anomalies, and make informed business decisions in real-time.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 MWConsultants | Empowering Businesses with AI & Automation
+  </footer>
+
+  <!-- Optional: Embed your n8n chat widget -->
+  <iframe src="https://n8n.yourdomain.com/chat"></iframe>
+</body>
+</html>
