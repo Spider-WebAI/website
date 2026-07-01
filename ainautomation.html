@@ -1,181 +1,818 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI & Automation | MWConsultants</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(180deg, #1e4c82, #2f67a0);
-      color: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI & Automation Services | MWConsultants - Leverage cutting-edge AI and automation technologies to streamline operations and enhance productivity.">
+    <meta name="keywords" content="AI automation, business automation, artificial intelligence, workflow automation, chatbots, process automation">
+    <title>AI & Automation | MWConsultants</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    header {
-      background: #fff;
-      color: #1e4c82;
-      padding: 1rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        :root {
+            --primary: #1e3a5f;      /* Deep navy blue - professional & trustworthy */
+            --secondary: #4a6fa5;    /* Medium blue - corporate feel */
+            --accent: #e67e22;       /* Warm orange - energetic & friendly */
+            --light: #f5f7fa;        /* Light gray-blue - clean background */
+            --dark: #2c3e50;         /* Dark blue-gray - professional text */
+            --gray: #7f8c8d;         /* Neutral gray - secondary text */
+            --success: #27ae60;      /* Green - positive action */
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
 
-    header h1 {
-      font-size: 1.5rem;
-      color: #1e4c82;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    header h1 span {
-      color: #f28c28;
-    }
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
 
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
+        ul {
+            list-style: none;
+        }
 
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #e6e6e6;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-    .btn {
-      background: #f28c28;
-      color: white;
-      padding: 0.8rem 1.8rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      margin: 0.5rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        .section-padding {
+            padding: 80px 0;
+        }
 
-    .btn:hover {
-      background: #e07a14;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
 
-    .section {
-      background: #fff;
-      color: #1e4c82;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
 
-    .section h3 {
-      font-size: 2rem;
-      color: #1e4c82;
-    }
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .section p {
-      max-width: 800px;
-      margin: 1rem auto 2rem;
-      font-size: 1.05rem;
-      color: #333;
-    }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
 
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-    .card {
-      background: #f5f5f5;
-      border-radius: 10px;
-      width: 300px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: left;
-    }
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .card h4 {
-      color: #1e4c82;
-      margin-bottom: 0.5rem;
-    }
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .card p {
-      color: #444;
-      font-size: 0.95rem;
-    }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #1e4c82;
-      color: #fff;
-      font-size: 0.9rem;
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-    iframe {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 350px;
-      height: 500px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      z-index: 9999;
-    }
-  </style>
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--gradient);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+        }
+
+        .features-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .features-intro p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(230, 126, 34, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(230, 126, 34, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: white;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .benefits-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .benefits-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .benefits-list {
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-item i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .benefit-item p {
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .benefits-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-image div {
+            width: 100%;
+            height: 400px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-content .btn {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cta-content .btn:hover {
+            background-color: #f5f7fa;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .benefits-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>MW<span>Consultants</span></h1>
-    <nav>
-      <a href="index.html" style="color:#1e4c82; margin-right:20px;">Home</a>
-      <a href="ai-automation.html" style="color:#f28c28;">AI & Automation</a>
-      <a href="contact.html" style="color:#1e4c82;">Contact</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">MW<span>Consultants</span></a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <section class="hero">
-    <h2>AI & Automation Solutions</h2>
-    <p>
-      Harness the power of Artificial Intelligence and automation to simplify workflows, enhance efficiency, and drive innovation. MWConsultants builds smart systems that think, learn, and automate your business processes.
-    </p>
-    <button class="btn">Explore Services</button>
-    <button class="btn">Request Demo</button>
-  </section>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container page-header-content">
+            <h1>AI & Automation Solutions</h1>
+            <p>Harness the power of Artificial Intelligence and automation to simplify workflows, enhance efficiency, and drive innovation. Transform your business with cutting-edge technology.</p>
+            <a href="contact.html" class="btn">Get Started</a>
+        </div>
+    </section>
 
-  <section class="section">
-    <h3>What We Offer</h3>
-    <p>
-      From intelligent chatbots to complete AI-powered process automation, we help organizations adopt next-generation technology with measurable ROI.
-    </p>
-    <div class="services">
-      <div class="card">
-        <h4>AI Chat & Voice Agents</h4>
-        <p>Automate customer engagement using conversational AI powered by n8n and NLP technologies.</p>
-      </div>
-      <div class="card">
-        <h4>Business Process Automation</h4>
-        <p>Streamline repetitive workflows across departments with no-code automations and data-driven triggers.</p>
-      </div>
-      <div class="card">
-        <h4>Predictive Analytics</h4>
-        <p>Leverage AI to forecast demand, detect anomalies, and make informed business decisions in real-time.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Features Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <div class="features-intro">
+                <h2>Why Choose Our AI & Automation Services?</h2>
+                <p>We combine deep industry expertise with cutting-edge technology to deliver transformative solutions that maximize efficiency and ROI.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Intelligent Systems</h3>
+                    <p>Deploy AI-powered systems that learn and adapt to your business needs, continuously improving performance.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Streamline repetitive workflows and eliminate manual tasks, freeing your team to focus on strategic work.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Extract actionable insights from your data to make informed decisions and predict future trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 MWConsultants | Empowering Businesses with AI & Automation
-  </footer>
+    <!-- Services Section -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our AI & Automation Services</h2>
+                <p>Comprehensive solutions tailored to your business challenges and growth objectives.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chatbots & Voice Agents</h3>
+                    <p>Build intelligent conversational agents that provide 24/7 customer support, reduce response time, and improve satisfaction.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Automate complex business processes across departments using no-code and AI-powered solutions for faster execution.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robotic Process Automation</h3>
+                    <p>Implement RPA bots to handle high-volume, rule-based tasks with accuracy and speed, reducing operational costs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crystal-ball"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Leverage machine learning models to forecast demand, identify patterns, and make data-driven strategic decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Optional: Embed your n8n chat widget -->
-  <iframe src="https://n8n.yourdomain.com/chat"></iframe>
+    <!-- Benefits Section -->
+    <section class="benefits section-padding">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2>The Business Impact of AI & Automation</h2>
+                    <p>Our solutions are designed to deliver measurable results and sustainable growth for your organization.</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Cost Reduction</h4>
+                                <p>Reduce operational expenses by automating repetitive tasks and improving resource allocation.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Increased Efficiency</h4>
+                                <p>Speed up processes, eliminate bottlenecks, and enhance team productivity by 40-60%.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Improved Accuracy</h4>
+                                <p>Minimize human errors and ensure consistent, high-quality output across all operations.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Better Decision Making</h4>
+                                <p>Gain real-time insights and predictive intelligence to stay ahead of market trends.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn">Request Consultation</a>
+                </div>
+                <div class="benefits-image">
+                    <div>AI & Automation in Action</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let our AI & Automation experts help you unlock new opportunities and drive competitive advantage.</p>
+            <a href="contact.html" class="btn">Schedule a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MWConsultants</h3>
+                    <p>Your trusted partner for comprehensive business consultancy services including AI & Automation, Financial Services, IT Infrastructure, and Real Estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="ainautomation.html">AI & Automation</a></li>
+                        <li><a href="#">Financial Services & GST</a></li>
+                        <li><a href="#">IT Infrastructure Support</a></li>
+                        <li><a href="#">Real Estate Consultancy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>Ground Floor, 62, Desk No 11, Udyog Marg, JKT, Sector 2, Noida, GB Nagar, Uttar Pradesh. 201301</p>
+                    <p>Phone: +91 9220505003</p>
+                    <p>Email: info@mwconsultants.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MWConsultants. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
