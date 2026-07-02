@@ -7,7 +7,7 @@
     <meta name="keywords" content="contact MWConsultants, business consultancy, get in touch, consultation request">
     <title>Contact Us | MWConsultants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
     <style>
         /* Reset and Base Styles */
         * {
@@ -905,12 +905,13 @@
         </div>
     </footer>
 
-    <script defer>
+    <script>
+        // Initialize EmailJS immediately
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('2o3f_xNTxdcA323bx');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize EmailJS when library is ready
-            if (typeof emailjs !== 'undefined') {
-                emailjs.init('2o3f_xNTxdcA323bx');
-            }
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
