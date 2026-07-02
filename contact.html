@@ -7,7 +7,7 @@
     <meta name="keywords" content="contact MWConsultants, business consultancy, get in touch, consultation request">
     <title>Contact Us | MWConsultants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js" onload="console.log('EmailJS loaded')"></script>
     <style>
         /* Reset and Base Styles */
         * {
@@ -906,31 +906,24 @@
     </footer>
 
     <script>
-        // Wait for EmailJS to load
-        function initEmailJS() {
-            if (typeof emailjs !== 'undefined') {
-                emailjs.init('2o3f_xNTxdcA323bx');
-                return true;
-            }
-            return false;
+        // Initialize EmailJS after CDN loads
+        let emailjsReady = false;
+
+        // Check if EmailJS is already loaded
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('2o3f_xNTxdcA323bx');
+            emailjsReady = true;
+            console.log('EmailJS initialized immediately');
         }
 
-        // Try to initialize immediately, then keep checking
-        let emailjsReady = false;
-        if (!initEmailJS()) {
-            let attempts = 0;
-            const checkEmailJS = setInterval(() => {
-                if (initEmailJS()) {
-                    emailjsReady = true;
-                    clearInterval(checkEmailJS);
-                    console.log('EmailJS loaded successfully');
-                }
-                attempts++;
-                if (attempts > 50) clearInterval(checkEmailJS); // Stop after 5 seconds
-            }, 100);
-        } else {
-            emailjsReady = true;
-        }
+        // Wait for window.emailjs to exist
+        window.addEventListener('load', () => {
+            if (typeof emailjs !== 'undefined' && !emailjsReady) {
+                emailjs.init('2o3f_xNTxdcA323bx');
+                emailjsReady = true;
+                console.log('EmailJS initialized on window load');
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -955,8 +948,9 @@
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                if (!emailjsReady) {
-                    alert('Email service is not ready. Please try again in a moment.');
+                // Check if emailjs is available
+                if (typeof emailjs === 'undefined') {
+                    alert('Email service is loading. Please try again in a moment.');
                     return;
                 }
 
