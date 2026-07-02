@@ -906,9 +906,30 @@
     </footer>
 
     <script>
-        // Initialize EmailJS immediately
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init('2o3f_xNTxdcA323bx');
+        // Wait for EmailJS to load
+        function initEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init('2o3f_xNTxdcA323bx');
+                return true;
+            }
+            return false;
+        }
+
+        // Try to initialize immediately, then keep checking
+        let emailjsReady = false;
+        if (!initEmailJS()) {
+            let attempts = 0;
+            const checkEmailJS = setInterval(() => {
+                if (initEmailJS()) {
+                    emailjsReady = true;
+                    clearInterval(checkEmailJS);
+                    console.log('EmailJS loaded successfully');
+                }
+                attempts++;
+                if (attempts > 50) clearInterval(checkEmailJS); // Stop after 5 seconds
+            }, 100);
+        } else {
+            emailjsReady = true;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -933,6 +954,11 @@
             const contactForm = document.getElementById('contactForm');
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+
+                if (!emailjsReady) {
+                    alert('Email service is not ready. Please try again in a moment.');
+                    return;
+                }
 
                 // Get form data
                 const formData = {
