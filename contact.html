@@ -7,6 +7,7 @@
     <meta name="keywords" content="contact MWConsultants, business consultancy, get in touch, consultation request">
     <title>Contact Us | MWConsultants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
     <style>
         /* Reset and Base Styles */
         * {
@@ -691,7 +692,7 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Email</h3>
-                                <p>info@mwconsultants.com<br>support@mwconsultants.com</p>
+                                <p>support@mwconsultantancy.com<br>consultansmw2@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -895,7 +896,7 @@
                     <h3>Contact Info</h3>
                     <p>Ground Floor, 62, Desk No 11, Udyog Marg, JKT, Sector 2, Noida, GB Nagar, Uttar Pradesh. 201301</p>
                     <p>Phone: +91 9220505003</p>
-                    <p>Email: info@mwconsultants.com</p>
+                    <p>Email: support@mwconsultantancy.com</p>
                 </div>
             </div>
             <div class="copyright">
@@ -905,6 +906,9 @@
     </footer>
 
     <script>
+        // Initialize EmailJS
+        emailjs.init('2o3f_xNTxdcA323bx');
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const nav = document.querySelector('nav');
@@ -925,8 +929,35 @@
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you within 24 hours.');
-            contactForm.reset();
+
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_mh8ntj5', 'template_640pc2p', {
+                to_email: 'support@mwconsultantancy.com,consultansmw2@gmail.com',
+                from_email: formData.email,
+                from_name: formData.firstName + ' ' + formData.lastName,
+                phone: formData.phone,
+                company: formData.company,
+                service: formData.service,
+                message: formData.message,
+                reply_to: formData.email
+            }).then((response) => {
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                contactForm.reset();
+            }).catch((error) => {
+                alert('Failed to send message. Please try again or contact us directly.');
+                console.error('Email error:', error);
+            });
         });
 
         // FAQ Accordion
