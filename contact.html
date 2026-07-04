@@ -7,7 +7,7 @@
     <meta name="keywords" content="contact MWConsultants, business consultancy, get in touch, consultation request">
     <title>Contact Us | MWConsultants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
     <style>
         /* Reset and Base Styles */
         * {
@@ -954,8 +954,14 @@
                 // Check if emailjs is available, if not try to initialize again
                 if (typeof emailjs === 'undefined') {
                     console.log('EmailJS not available, waiting...');
-                    // Wait a bit and try again
-                    await new Promise(resolve => setTimeout(resolve, 500));
+                    // Wait and retry multiple times
+                    for (let i = 0; i < 5; i++) {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        if (typeof emailjs !== 'undefined') {
+                            initializeEmailJS();
+                            break;
+                        }
+                    }
                     if (typeof emailjs === 'undefined') {
                         alert('Email service failed to load. Please refresh the page and try again.');
                         return;
