@@ -904,8 +904,8 @@
         </div>
     </footer>
 
-    <!-- Load EmailJS library first -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <!-- Load EmailJS v4 library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
         // Initialize EmailJS
@@ -917,6 +917,9 @@
                     });
                     console.log('EmailJS initialized successfully');
                     return true;
+                } else {
+                    console.warn('EmailJS not loaded yet');
+                    return false;
                 }
             } catch (e) {
                 console.error('Error initializing EmailJS:', e);
@@ -924,11 +927,12 @@
             return false;
         }
 
-        // Try to initialize immediately
-        if (!initializeEmailJS()) {
-            // If not available, wait for page to load
-            window.addEventListener('load', initializeEmailJS);
-        }
+        // Initialize when window loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                initializeEmailJS();
+            }, 500);
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
 
